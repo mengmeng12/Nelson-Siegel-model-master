@@ -1,0 +1,33 @@
+---
+title: "Untitled"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+library('fBonds')
+```
+
+
+```{r}
+Yield = as.numeric(read.csv('../data/select_table.txt',sep = ',',row.names = 1)[1,])
+Maturity = c(0, 2,5,11,23,35,59,83,119,239,359)+1
+Maturity
+Yield
+```
+
+
+
+```{r}
+NelsonSiegel(Yield,
+             Maturity,doplot =TRUE)
+```
+
+
+```{r}
+Svensson(Yield, Maturity,doplot=TRUE)
+```
+```{r}
+Svensson(Yield, Maturity,doplot=FALSE)$par
+```
